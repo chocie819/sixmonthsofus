@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>6 Months of Us ♡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fdf6ee;
+    --blush:#f7dfe0;
+    --rose:#d96c7b;
+    --deep:#7a2e3d;
+    --ink:#4a2630;
+    --gold:#c9a063;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Cormorant Garamond',serif;
+    background:var(--cream);
+    color:var(--ink);
+    overflow-x:hidden;
+  }
+
+  /* ---- floating hearts background ---- */
+  .hearts{position:fixed;inset:0;pointer-events:none;z-index:0;}
+  .hearts span{
+    position:absolute;bottom:-5vh;
+    font-size:1.2rem;color:var(--rose);opacity:0;
+    animation:floatUp linear infinite;
+  }
+  @keyframes floatUp{
+    0%{transform:translateY(0) rotate(0deg);opacity:0;}
+    10%{opacity:.35;}
+    90%{opacity:.15;}
+    100%{transform:translateY(-110vh) rotate(25deg);opacity:0;}
+  }
+
+  section{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:4rem 1.5rem;text-align:center;}
+
+  /* ---- hero ---- */
+  .hero h1{
+    font-size:clamp(2.6rem,8vw,5.5rem);
+    font-weight:500;line-height:1.1;
+    color:var(--deep);
+  }
+  .hero h1 em{font-style:italic;color:var(--rose);}
+  .hero .date{
+    font-family:'Caveat',cursive;
+    font-size:clamp(1.4rem,4vw,2rem);
+    color:var(--gold);margin-top:1.2rem;
+  }
+  .hero .sub{
+    margin-top:2rem;max-width:34rem;
+    font-size:clamp(1.1rem,3vw,1.4rem);
+    font-style:italic;opacity:.85;
+  }
+  .scroll-hint{
+    margin-top:4rem;font-family:'Caveat',cursive;
+    font-size:1.3rem;color:var(--rose);
+    animation:bounce 2s ease-in-out infinite;
+  }
+  @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(10px);}}
+
+  .fade{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s ease;}
+  .fade.show{opacity:1;transform:none;}
+
+  /* ---- love notes ---- */
+  .notes h2{
+    font-size:clamp(2rem,6vw,3.2rem);font-weight:500;
+    color:var(--deep);margin-bottom:3rem;
+  }
+  .notes h2 em{font-style:italic;color:var(--rose);}
+  .card-stack{display:flex;flex-direction:column;gap:2rem;max-width:38rem;width:100%;}
+  .card{
+    background:#fff;
+    border:1px solid var(--blush);
+    border-radius:4px;
+    padding:2.2rem 2rem;
+    box-shadow:0 12px 30px rgba(122,46,61,.08);
+    font-size:1.25rem;line-height:1.6;
+    position:relative;
+  }
+  .card:nth-child(odd){transform:rotate(-1.2deg);}
+  .card:nth-child(even){transform:rotate(1.2deg);}
+  .card::before{
+    content:'♡';
+    position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+    background:var(--cream);padding:0 .6rem;
+    color:var(--rose);font-size:1.3rem;
+  }
+  .card .sig{
+    display:block;margin-top:1rem;
+    font-family:'Caveat',cursive;font-size:1.3rem;color:var(--gold);
+  }
+
+  /* ---- counter ---- */
+  .counter p{font-size:clamp(1.2rem,3vw,1.5rem);font-style:italic;margin-bottom:1.5rem;}
+  .counter .big{
+    font-size:clamp(3rem,10vw,6rem);
+    font-weight:600;color:var(--rose);
+    line-height:1;
+  }
+  .counter .label{font-family:'Caveat',cursive;font-size:1.6rem;color:var(--gold);margin-top:.5rem;}
+
+  /* ---- the question ---- */
+  .question{background:linear-gradient(180deg,var(--cream) 0%,var(--blush) 100%);}
+  .question h2{
+    font-size:clamp(2.2rem,7vw,4rem);
+    font-weight:500;color:var(--deep);
+    max-width:20ch;
+  }
+  .question h2 em{font-style:italic;color:var(--rose);}
+  .btns{margin-top:3rem;display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;align-items:center;}
+  .btn{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.4rem;font-weight:600;
+    padding:1rem 3rem;border-radius:999px;
+    border:2px solid var(--deep);cursor:pointer;
+    transition:transform .25s ease,box-shadow .25s ease,font-size .25s ease,padding .25s ease;
+  }
+  .btn:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(122,46,61,.18);}
+  .btn-yes{background:var(--deep);color:var(--cream);}
+  .btn-no{background:transparent;color:var(--deep);}
+  .nudge{
+    margin-top:1.5rem;min-height:2rem;
+    font-family:'Caveat',cursive;font-size:1.5rem;color:var(--rose);
+  }
+
+  /* ---- celebration ---- */
+  .celebrate{display:none;}
+  .celebrate.active{display:flex;}
+  .celebrate h2{
+    font-size:clamp(2.4rem,8vw,4.5rem);
+    color:var(--deep);font-weight:500;
+  }
+  .celebrate h2 em{font-style:italic;color:var(--rose);}
+  .celebrate p{
+    margin-top:1.5rem;font-size:1.3rem;font-style:italic;max-width:30rem;
+  }
+  .confetti-heart{
+    position:fixed;top:-5vh;font-size:1.6rem;z-index:5;pointer-events:none;
+    animation:fall linear forwards;
+  }
+  @keyframes fall{
+    to{transform:translateY(115vh) rotate(360deg);}
+  }
+</style>
+</head>
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <!-- ✏️ EDIT: put his name here -->
+  <h1 class="fade">Six months of <em>you &amp; me</em></h1>
+  <p class="date fade">since December 18th — half a year already ♡</p>
+  <p class="sub fade">I made this little corner of the internet just for you, because some things deserve more than a text message.</p>
+  <p class="scroll-hint">scroll down, my love ↓</p>
+</section>
+
+<!-- ============ LOVE NOTES ============ -->
+<section class="notes">
+  <h2 class="fade">A few things I <em>need</em> you to know</h2>
+  <div class="card-stack">
+    <!-- ✏️ EDIT: rewrite these cards in your own words, add or remove as many as you like -->
+    <div class="card fade">
+      Every morning I wake up and my first thought is you. Six months in, and you still make my heart do that silly little jump.
+      <span class="sig">— always yours</span>
+    </div>
+    <div class="card fade">
+      Thank you for every laugh, every late-night talk, every time you held my hand like it was the most natural thing in the world.
+      <span class="sig">— me ♡</span>
+    </div>
+    <div class="card fade">
+      You are my favorite person, my safest place, and my best decision. Here's to six months — and to all the months after that.
+      <span class="sig">— forever, hopefully</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COUNTER ============ -->
+<section class="counter">
+  <p class="fade">Do you know how long I've been this happy?</p>
+  <div class="big fade" id="dayCount">0</div>
+  <div class="label fade">days of loving you (and counting)</div>
+</section>
+
+<!-- ============ THE QUESTION ============ -->
+<section class="question" id="questionSection">
+  <h2 class="fade">So… I have one little question. <em>Do you wanna marry me?</em></h2>
+  <div class="btns" id="btns">
+    <button class="btn btn-yes" id="yesBtn" onclick="sayYes()">Yes</button>
+    <button class="btn btn-no" id="noBtn" onclick="sayNo()">No</button>
+  </div>
+  <p class="nudge" id="nudge"></p>
+</section>
+
+<!-- ============ CELEBRATION ============ -->
+<section class="celebrate" id="celebrate">
+  <h2>He said <em>YES!</em> ♡</h2>
+  <p>I knew it. I love you endlessly. Happy 6 months, my love — this is only the beginning.</p>
+</section>
+
+<script>
+  /* ✏️ EDIT: set your anniversary START date here (the day you got together) */
+  const startDate = new Date('2025-12-18');
+
+  /* days counter */
+  const days = Math.floor((Date.now() - startDate.getTime()) / 86400000);
+  const dayEl = document.getElementById('dayCount');
+
+  /* animate counter when visible */
+  let counted = false;
+  function animateCount(){
+    if(counted) return; counted = true;
+    let n = 0;
+    const step = Math.max(1, Math.floor(days/60));
+    const t = setInterval(()=>{
+      n += step;
+      if(n >= days){ n = days; clearInterval(t); }
+      dayEl.textContent = n;
+    }, 25);
+  }
+
+  /* floating background hearts */
+  const heartsBox = document.getElementById('hearts');
+  for(let i=0;i<18;i++){
+    const s = document.createElement('span');
+    s.textContent = '♡';
+    s.style.left = Math.random()*100 + 'vw';
+    s.style.animationDuration = (9 + Math.random()*10) + 's';
+    s.style.animationDelay = (Math.random()*12) + 's';
+    s.style.fontSize = (0.8 + Math.random()*1.4) + 'rem';
+    heartsBox.appendChild(s);
+  }
+
+  /* fade-in on scroll */
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('show');
+        if(e.target.id === 'dayCount') animateCount();
+      }
+    });
+  },{threshold:.3});
+  document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+
+  /* ---- the playful NO button logic ---- */
+  let noClicks = 0;
+  const noBtn = document.getElementById('noBtn');
+  const yesBtn = document.getElementById('yesBtn');
+  const nudge = document.getElementById('nudge');
+
+  const nudges = [
+    "are you sure about that? 🥺",
+    "let's try that again…",
+    "wrong button, my love ♡",
+  ];
+
+  function sayNo(){
+    noClicks++;
+    /* yes grows, no shrinks */
+    yesBtn.style.fontSize = (1.4 + noClicks*0.5) + 'rem';
+    yesBtn.style.padding = (1 + noClicks*0.4) + 'rem ' + (3 + noClicks*1) + 'rem';
+    nudge.textContent = nudges[Math.min(noClicks-1, nudges.length-1)];
+
+    if(noClicks === 1){
+      noBtn.style.fontSize = '1.1rem';
+      noBtn.style.padding = '.7rem 2rem';
+      noBtn.textContent = 'No…?';
+    } else {
+      /* second "no" click → no disappears, only yes remains */
+      noBtn.remove();
+      nudge.textContent = "see? there was only ever one answer ♡";
+    }
+  }
+
+  function sayYes(){
+    document.getElementById('questionSection').style.display = 'none';
+    const cel = document.getElementById('celebrate');
+    cel.classList.add('active');
+    cel.scrollIntoView();
+    /* confetti hearts */
+    const emojis = ['❤️','💖','💘','💕','♡','💍'];
+    for(let i=0;i<60;i++){
+      setTimeout(()=>{
+        const h = document.createElement('div');
+        h.className = 'confetti-heart';
+        h.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+        h.style.left = Math.random()*100 + 'vw';
+        h.style.animationDuration = (2.5 + Math.random()*3) + 's';
+        h.style.fontSize = (1 + Math.random()*1.6) + 'rem';
+        document.body.appendChild(h);
+        setTimeout(()=>h.remove(), 6000);
+      }, i*80);
+    }
+  }
+</script>
+</body>
+</html>
