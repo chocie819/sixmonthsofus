@@ -7,6 +7,8 @@
 A single-page, scroll-through website celebrating a **6-month anniversary** —
 sweet love notes, a live "days together" counter, and a playful surprise question at the end.
 
+> 💝 I made this for my love, my amazing husband. 🤍
+
 ![HTML5](https://img.shields.io/badge/Built%20with-HTML%20%C2%B7%20CSS%20%C2%B7%20JS-d96c7b)
 ![No build step](https://img.shields.io/badge/Setup-zero%20build-f7dfe0)
 ![Made with](https://img.shields.io/badge/Made%20with-🤍-d96c7b)
